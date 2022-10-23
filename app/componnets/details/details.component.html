@@ -1,0 +1,24 @@
+<h1>{{Name}}</h1>
+<p>
+    <b>Name:</b> {{customer?.FirstName}} {{customer?.LastName}}<br>
+    <b>Id:</b> {{customer?.Id}}<br>
+    <b>Address:</b> {{customer?.Address?.City}} {{customer?.Address?.Street}} {{customer?.Address?.Number}}<br>
+    <b>Date of birth:</b> {{customer?.DateOfBirth}}<br>
+    <b>Telephone:</b> {{customer?.Telephone}}<br>
+    <b>Mobile:</b> {{customer?.Mobile}}<br>
+    <b>Vaccination:</b>
+</p>
+    
+    <ul>
+        <li *ngFor="let item of customer?.Vaccination; index as i">
+            <b>Num of vaccination:</b>  {{i+1}} <br>
+            <b>Date of receiving the vaccine:</b>  {{item.ReceivingTheVaccine}} <br>
+            <b>Manufacturer:</b> {{item.Manufacturer}}
+        </li>
+    </ul> 
+<p>
+    <b>Date of Cuvid19 positive:</b> {{customer?.Cuvid19Positive}} <br>
+    <b>Date of recovery:</b> {{customer?.Recovery}}
+</p>
+<img src="{{image}}">
+

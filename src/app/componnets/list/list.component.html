@@ -1,0 +1,8 @@
+<h1>List Of Customers:</h1>
+<ul>
+    <li *ngFor="let item of arr"><div><a mat-button routerLink="/details/{{item.NumCustomer}}/{{item.FirstName}} {{item.LastName}}">{{item.LastName}} {{item.FirstName}}</a>
+        <a mat-button (click)="delete(item.NumCustomer)">Delete</a>
+        <a mat-button (click)="emit(item)" routerLink="/edit/{{item.NumCustomer}}">Edit</a>
+    </div> </li>
+  </ul>
+  <a mat-button routerLink="/edit">Add</a>

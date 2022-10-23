@@ -1,0 +1,47 @@
+<h1>Edit / Add New Customer:</h1>
+    <form [formGroup]="form"  (ngSubmit)="save()">
+        <b>First Name:</b>
+        <input formControlName="FirstName" placeholder="{{customer?.FirstName}}" /><br>
+        <b>Last Name:</b>
+        <input formControlName="LastName" placeholder="{{customer?.LastName}}" /><br>
+        <b>Id:</b>
+        <input formControlName="Id" placeholder="{{customer?.Id}}"/><br>
+        <form [formGroup]="formAddress">
+            <b>Address</b> <br>
+            <b>City:</b><input formControlName="City" placeholder="{{customer?.Address?.City}}"/><br>
+            <b>Street:</b><input formControlName="Street" placeholder="{{customer?.Address?.Street}}"/><br>
+            <b>Number of house:</b><input formControlName="Number" placeholder="{{customer?.Address?.Number}}"/><br>
+        </form>
+        <b>Date of birth:</b>
+        <input formControlName="DateOfBirth" placeholder="{{customer?.DateOfBirth}}"/><br>
+        <b>Telephone:</b>
+        <input formControlName="Telephone" placeholder="   {{customer?.Telephone}}"/><br>
+        <b>Mobile:</b>
+        <input formControlName="Mobile" placeholder="{{customer?.Mobile}}"/><br>
+        <b>Vaccination:</b>
+            <form [formGroup]="formVaccination">
+                <b>Num of vaccination:</b> {{i+1}}<br>
+                <b>Date of receiving the vaccine:</b>         
+                <input formControlName="ReceivingTheVaccine" placeholder="ReceivingTheVaccine"/><br>
+                <b>Manufacturer:</b>
+                <input formControlName="Manufacturer" placeholder="Manufacturer"/><br> 
+                <a mat-button (click)="addVaccination()">Add vaccination</a>
+            </form>
+        <b>Date of Cuvid19 positive:</b>
+        <input formControlName="Cuvid19Positive" placeholder="{{customer?.Cuvid19Positive}}"/><br>
+        <b>Date of recovery:</b>
+        <input formControlName="Recovery" placeholder="{{customer?.Recovery}}"/><br>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> -->
+         <div> 
+            <!-- <img src="{{img}}"> -->
+
+            <app-img-uploader></app-img-uploader>
+        </div>
+        <button mat-raised-button  type="submit" [disabled]="!form.valid">שליחה</button>
+    </form>
