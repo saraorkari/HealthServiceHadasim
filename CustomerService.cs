@@ -49,14 +49,16 @@ namespace BLL
             using (dbHealthServicesEntities db = new dbHealthServicesEntities())
             {
                 Customer Customer = null;
+                string strImg = a.Img;
                 if (db.Customer.FirstOrDefault(x => x.Id == a.Id) != null)
                 {
                     a = Convertion.CustomerConvertion.Convert(db.Customer.FirstOrDefault(x => x.Id == a.Id));
+                    a.Img = strImg;
                     Customer = Convertion.CustomerConvertion.Convert(Put(a.Id, a));
                 }
                 else
                 {
-                    db.Customer.FirstOrDefault(x => x.NumCustomer == a.NumCustomer).img = a.Img;
+                    db.Customer.FirstOrDefault(x => x.NumCustomer == a.NumCustomer).img = strImg;
                     Address address = db.Address.Add(Convertion.AddressConvertion.Convert(a.Address));
                     db.SaveChanges();
                     a.AddressId = address.AddressId;
